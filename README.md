@@ -804,8 +804,10 @@ video.addEventListener('ended', () => {
 
 // Time update (fires as video plays)
 video.addEventListener('timeupdate', () => {
-  const progress = (video.currentTime / video.duration) * 100;
-  console.log('Progress:', progress.toFixed(2) + '%');
+  if (video.duration > 0) {
+    const progress = (video.currentTime / video.duration) * 100;
+    console.log('Progress:', progress.toFixed(2) + '%');
+  }
 });
 
 // When video is seeking
@@ -851,8 +853,10 @@ playPauseBtn.addEventListener('click', () => {
 
 // Progress bar
 video.addEventListener('timeupdate', () => {
-  const percentage = (video.currentTime / video.duration) * 100;
-  progressBar.style.width = percentage + '%';
+  if (video.duration > 0) {
+    const percentage = (video.currentTime / video.duration) * 100;
+    progressBar.style.width = percentage + '%';
+  }
 });
 ```
 
