@@ -888,6 +888,7 @@ Enables restrictions on the iframe content for security:
 ```
 
 **Sandbox Values:**
+*Note: By default, the sandbox attribute applies all restrictions. These values grant specific permissions.*
 - `allow-forms`: Allows form submission
 - `allow-scripts`: Allows JavaScript execution
 - `allow-same-origin`: Treats content as same origin
@@ -898,6 +899,7 @@ Enables restrictions on the iframe content for security:
 - `allow-presentation`: Allows presentation sessions
 - `allow-popups-to-escape-sandbox`: Allows popups without sandbox restrictions
 - `allow-top-navigation`: Allows navigation of top-level context
+- `allow-downloads`: Allows downloads from within the iframe
 
 Example with multiple sandbox permissions:
 ```html
@@ -1018,8 +1020,9 @@ More complex example:
 
 #### Embedding Google Maps
 ```html
+<!-- Get your embed URL from Google Maps by clicking "Share" > "Embed a map" -->
 <iframe 
-  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
   width="600"
   height="450"
   style="border:0;"
@@ -1070,6 +1073,7 @@ More complex example:
 #### Embedding Code Editors
 **CodePen:**
 ```html
+<!-- Replace 'username' with CodePen username and 'HASH' with pen ID from the pen's URL -->
 <iframe 
   height="300"
   style="width: 100%;"
@@ -1096,6 +1100,7 @@ More complex example:
 #### Embedding Documents
 **Google Docs:**
 ```html
+<!-- Replace 'DOCUMENT_ID' with the actual document ID from your Google Docs share link -->
 <iframe 
   src="https://docs.google.com/document/d/DOCUMENT_ID/preview"
   width="640"
