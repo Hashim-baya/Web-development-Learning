@@ -833,9 +833,11 @@ video.addEventListener('error', (e) => {
 ```javascript
 // HTML: <video id="myVideo" src="video.mp4"></video>
 // HTML: <button id="playPauseBtn">Play</button>
+// HTML: <div id="progressBar" style="height: 5px; background: blue;"></div>
 
 const video = document.getElementById('myVideo');
 const playPauseBtn = document.getElementById('playPauseBtn');
+const progressBar = document.getElementById('progressBar');
 
 playPauseBtn.addEventListener('click', () => {
   if (video.paused) {
@@ -1096,7 +1098,7 @@ The HTML video element is supported in all modern browsers:
      "name": "Tutorial Video",
      "description": "Learn about HTML video elements",
      "thumbnailUrl": "thumbnail.jpg",
-     "uploadDate": "2026-01-06",
+     "uploadDate": "2024-01-15",
      "duration": "PT5M30S",
      "contentUrl": "video.mp4"
    }
