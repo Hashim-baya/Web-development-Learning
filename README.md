@@ -352,49 +352,6 @@ Example:
 </circle>
 ```
 
-#### CSS Animations
-```xml
-<style>
-  .animated-circle {
-    animation: move 2s infinite;
-  }
-  @keyframes move {
-    from { transform: translateX(0); }
-    to { transform: translateX(150px); }
-  }
-</style>
-<circle class="animated-circle" cx="50" cy="50" r="20" fill="blue" />
-```
-
-### SVG with CSS
-```css
-.my-svg-element {
-  fill: #ff6600;
-  stroke: #000000;
-  stroke-width: 2px;
-  transition: fill 0.3s ease;
-}
-
-.my-svg-element:hover {
-  fill: #00ff66;
-}
-```
-
-### SVG with JavaScript
-```javascript
-// Select SVG element
-const circle = document.querySelector('circle');
-
-// Change attributes
-circle.setAttribute('fill', 'purple');
-circle.setAttribute('r', '50');
-
-// Add event listeners
-circle.addEventListener('click', function() {
-  this.setAttribute('fill', 'yellow');
-});
-```
-
 ### Clipping and Masking
 
 #### Clipping Path
@@ -437,13 +394,6 @@ The `viewBox` attribute defines the coordinate system and aspect ratio:
 #### As an Image
 ```html
 <img src="image.svg" alt="SVG Image" />
-```
-
-#### As Background Image (CSS)
-```css
-.element {
-  background-image: url('image.svg');
-}
 ```
 
 #### As Object
@@ -505,14 +455,6 @@ Combine multiple SVGs into a sprite sheet:
 <svg><use href="#icon-user" /></svg>
 ```
 
-### Responsive SVG
-```css
-svg {
-  width: 100%;
-  height: auto;
-}
-```
-
 ### Browser Support
 SVG is supported in all modern browsers:
 - Chrome, Firefox, Safari, Edge (full support)
@@ -540,14 +482,6 @@ SVG is supported in all modern browsers:
 - **Vector Editors**: Adobe Illustrator, Inkscape, Figma, Sketch
 - **Online Editors**: SVG-Edit, Method Draw, Vectr
 - **Code Editors**: VS Code with SVG extensions
-
-#### Libraries
-- **Snap.svg**: JavaScript library for working with SVG
-- **D3.js**: Data visualization with SVG
-- **Anime.js**: Animation library with SVG support
-- **GreenSock (GSAP)**: Professional animation library
-- **Vivus.js**: Animate SVG strokes
-- **SVG.js**: Lightweight library for manipulating SVG
 
 ### Advanced Topics
 - **SVG Filters**: Complex visual effects
@@ -712,154 +646,6 @@ Welcome to our video tutorial!
 Today we'll learn about HTML video elements.
 ```
 
-### Styling Videos with CSS
-```css
-/* Responsive video */
-video {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Custom border and shadow */
-.video-container video {
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Video wrapper for aspect ratio */
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-}
-
-.video-wrapper video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-```
-
-### Controlling Videos with JavaScript
-
-#### Basic Playback Control
-```javascript
-const video = document.querySelector('video');
-
-// Play video
-video.play();
-
-// Pause video
-video.pause();
-
-// Check if video is playing
-const isPlaying = !video.paused && !video.ended;
-
-// Set current time (in seconds)
-video.currentTime = 30;
-
-// Set volume (0.0 to 1.0)
-video.volume = 0.5;
-
-// Mute/unmute
-video.muted = true;
-
-// Set playback speed
-video.playbackRate = 1.5; // 1.5x speed
-```
-
-#### Video Events
-```javascript
-const video = document.querySelector('video');
-
-// When video metadata is loaded
-video.addEventListener('loadedmetadata', () => {
-  console.log('Duration:', video.duration);
-  console.log('Dimensions:', video.videoWidth, 'x', video.videoHeight);
-});
-
-// When video can start playing
-video.addEventListener('canplay', () => {
-  console.log('Video is ready to play');
-});
-
-// When video starts playing
-video.addEventListener('play', () => {
-  console.log('Video started playing');
-});
-
-// When video is paused
-video.addEventListener('pause', () => {
-  console.log('Video paused');
-});
-
-// When video ends
-video.addEventListener('ended', () => {
-  console.log('Video finished');
-});
-
-// Time update (fires as video plays)
-video.addEventListener('timeupdate', () => {
-  if (video.duration > 0) {
-    const progress = (video.currentTime / video.duration) * 100;
-    console.log('Progress:', progress.toFixed(2) + '%');
-  }
-});
-
-// When video is seeking
-video.addEventListener('seeking', () => {
-  console.log('Seeking to:', video.currentTime);
-});
-
-// Volume change
-video.addEventListener('volumechange', () => {
-  console.log('Volume:', video.volume);
-});
-
-// Playback rate change
-video.addEventListener('ratechange', () => {
-  console.log('Playback rate:', video.playbackRate);
-});
-
-// Error handling
-video.addEventListener('error', (e) => {
-  console.error('Video error:', e);
-});
-```
-
-#### Custom Video Player Example
-```javascript
-// HTML: <video id="myVideo" src="video.mp4"></video>
-// HTML: <button id="playPauseBtn">Play</button>
-// HTML: <div id="progressBar" style="height: 5px; background: blue;"></div>
-
-const video = document.getElementById('myVideo');
-const playPauseBtn = document.getElementById('playPauseBtn');
-const progressBar = document.getElementById('progressBar');
-
-playPauseBtn.addEventListener('click', () => {
-  if (video.paused) {
-    video.play();
-    playPauseBtn.textContent = 'Pause';
-  } else {
-    video.pause();
-    playPauseBtn.textContent = 'Play';
-  }
-});
-
-// Progress bar
-video.addEventListener('timeupdate', () => {
-  if (video.duration > 0) {
-    const percentage = (video.currentTime / video.duration) * 100;
-    progressBar.style.width = percentage + '%';
-  }
-});
-```
-
 ### Video Accessibility Best Practices
 1. **Always include captions**: Use `<track>` for closed captions
 2. **Provide transcripts**: Link to full text transcript
@@ -876,42 +662,6 @@ video.addEventListener('timeupdate', () => {
   <p>Your browser doesn't support video. 
      <a href="transcript.html">Read the transcript</a>.</p>
 </video>
-```
-
-### Responsive Video Techniques
-
-#### Using Max-Width
-```css
-video {
-  max-width: 100%;
-  height: auto;
-}
-```
-
-#### Aspect Ratio Container
-```css
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 ratio */
-  height: 0;
-  overflow: hidden;
-}
-
-.video-container video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-```
-
-#### CSS Aspect Ratio Property (Modern)
-```css
-video {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-}
 ```
 
 ### Performance Optimization
@@ -932,23 +682,6 @@ video {
 </video>
 ```
 
-#### Intersection Observer for Lazy Play
-```javascript
-const videos = document.querySelectorAll('video[data-autoplay]');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.play();
-    } else {
-      entry.target.pause();
-    }
-  });
-});
-
-videos.forEach(video => observer.observe(video));
-```
-
 ### Video Background Technique
 ```html
 <div class="video-background">
@@ -959,101 +692,6 @@ videos.forEach(video => observer.observe(video));
     <h1>Welcome to Our Site</h1>
   </div>
 </div>
-```
-
-```css
-.video-background {
-  position: relative;
-  overflow: hidden;
-  height: 100vh;
-}
-
-.video-background video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-.video-background .content {
-  position: relative;
-  z-index: 1;
-  color: white;
-  text-align: center;
-  padding-top: 40vh;
-}
-```
-
-### Advanced Features
-
-#### Picture-in-Picture API
-```javascript
-const video = document.querySelector('video');
-
-// Enable Picture-in-Picture
-async function enablePIP() {
-  try {
-    if (document.pictureInPictureEnabled) {
-      await video.requestPictureInPicture();
-    }
-  } catch (error) {
-    console.error('PIP failed:', error);
-  }
-}
-
-// Exit Picture-in-Picture
-async function exitPIP() {
-  if (document.pictureInPictureElement) {
-    await document.exitPictureInPicture();
-  }
-}
-```
-
-#### Fullscreen API
-```javascript
-const video = document.querySelector('video');
-
-// Enter fullscreen
-function enterFullscreen() {
-  if (video.requestFullscreen) {
-    video.requestFullscreen();
-  } else if (video.webkitRequestFullscreen) {
-    video.webkitRequestFullscreen();
-  } else if (video.msRequestFullscreen) {
-    video.msRequestFullscreen();
-  }
-}
-
-// Exit fullscreen
-function exitFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  }
-}
-```
-
-#### Media Source Extensions (MSE)
-For advanced streaming and adaptive bitrate:
-```javascript
-const video = document.querySelector('video');
-const mediaSource = new MediaSource();
-
-video.src = URL.createObjectURL(mediaSource);
-
-mediaSource.addEventListener('sourceopen', () => {
-  const sourceBuffer = mediaSource.addSourceBuffer('video/mp4; codecs="avc1.42E01E"');
-  
-  fetch('video-chunk.mp4')
-    .then(response => response.arrayBuffer())
-    .then(data => {
-      sourceBuffer.appendBuffer(data);
-    });
-});
 ```
 
 ### Browser Support
@@ -1160,27 +798,11 @@ The HTML video element is supported in all modern browsers:
 - **Shaka Player**: Adaptive streaming player
 - **HLS.js**: JavaScript library for HLS playback
 
-### Advanced Topics
-- **Adaptive Bitrate Streaming**: HLS, MPEG-DASH
-- **DRM and Content Protection**: Widevine, PlayReady, FairPlay
-- **Live Streaming**: WebRTC, HLS, RTMP
-- **Video Analytics**: Tracking engagement and viewer behavior
-- **Thumbnails and Sprite Sheets**: Preview images for seeking
-- **Multi-angle Videos**: Synchronizing multiple video streams
-- **360° and VR Videos**: Immersive video experiences
-- **Canvas and Video**: Processing video with Canvas API
-
 ### Practice Projects
-1. **Basic Video Player**: Create a simple video player with custom controls
+1. **Basic Video Player**: Create a simple video player with HTML controls
 2. **Video Gallery**: Build a responsive video gallery with thumbnails
 3. **Video Background Landing Page**: Design a hero section with video background
-4. **Custom Controls**: Build fully custom playback controls
-5. **Video Playlist**: Create a playlist player with queue management
-6. **Subtitle Editor**: Build a simple WebVTT subtitle editor
-7. **Picture-in-Picture Player**: Implement PIP functionality
-8. **Video Dashboard**: Create an analytics dashboard for video engagement
-9. **Screen Recorder**: Build a screen recording tool using MediaRecorder API
-10. **Video Conferencing**: Create a basic video chat application with WebRTC
+4. **Video Playlist**: Create a playlist with multiple videos
 
 ### Security Considerations
 1. **HTTPS Required**: Use HTTPS for video delivery
@@ -1194,3 +816,516 @@ The HTML video element is supported in all modern browsers:
 ---
 
 *The HTML video element is a powerful and essential feature for modern web development, enabling rich multimedia experiences while maintaining accessibility, performance, and cross-browser compatibility.*
+
+## HTML Iframe Element
+
+### Introduction to HTML Iframe Element
+The HTML `<iframe>` element (inline frame) is used to embed another HTML document within the current page. It creates a nested browsing context, allowing you to display content from external sources or other pages of your website within a rectangular region.
+
+### Why Use Iframe?
+- **Embed External Content**: Display content from other websites (YouTube videos, Google Maps, social media posts)
+- **Modular Design**: Separate different sections of your application
+- **Third-Party Widgets**: Integrate payment gateways, chat widgets, advertisements
+- **Content Isolation**: Keep external content separate from your main page
+- **Reusable Components**: Load common page elements across multiple pages
+- **Sandboxing**: Restrict capabilities of embedded content for security
+
+### Basic Iframe Structure
+```html
+<iframe src="https://www.example.com"></iframe>
+```
+
+### Essential Iframe Attributes
+
+#### src Attribute
+Specifies the URL of the page to embed:
+```html
+<iframe src="https://www.example.com"></iframe>
+<iframe src="page.html"></iframe>
+<iframe src="/path/to/page.html"></iframe>
+```
+
+#### width and height Attributes
+Set the dimensions of the iframe in pixels or percentages:
+```html
+<iframe src="page.html" width="800" height="600"></iframe>
+<iframe src="page.html" width="100%" height="400"></iframe>
+```
+
+#### title Attribute
+Provides an accessible name for the iframe (important for screen readers):
+```html
+<iframe src="https://www.example.com" title="Example Website"></iframe>
+```
+
+#### name Attribute
+Gives the iframe a name that can be used as a target for links:
+```html
+<iframe src="page.html" name="myFrame"></iframe>
+<a href="newpage.html" target="myFrame">Load in iframe</a>
+```
+
+#### frameborder Attribute (Deprecated)
+Controls the border around the iframe (deprecated in HTML5, use CSS instead):
+```html
+<!-- Old way (deprecated) -->
+<iframe src="page.html" frameborder="0"></iframe>
+
+<!-- Modern way with CSS -->
+<iframe src="page.html" style="border: none;"></iframe>
+```
+
+### Security Attributes
+
+#### sandbox Attribute
+Enables restrictions on the iframe content for security:
+```html
+<!-- Fully sandboxed iframe (most restrictive) -->
+<iframe src="page.html" sandbox></iframe>
+
+<!-- Allow specific features -->
+<iframe src="page.html" sandbox="allow-scripts allow-forms"></iframe>
+```
+
+**Sandbox Values:**
+- `allow-forms`: Allows form submission
+- `allow-scripts`: Allows JavaScript execution
+- `allow-same-origin`: Treats content as same origin
+- `allow-popups`: Allows popups
+- `allow-modals`: Allows modal dialogs
+- `allow-orientation-lock`: Allows screen orientation lock
+- `allow-pointer-lock`: Allows pointer lock API
+- `allow-presentation`: Allows presentation sessions
+- `allow-popups-to-escape-sandbox`: Allows popups without sandbox restrictions
+- `allow-top-navigation`: Allows navigation of top-level context
+
+Example with multiple sandbox permissions:
+```html
+<iframe 
+  src="https://example.com" 
+  sandbox="allow-scripts allow-same-origin allow-forms"
+  title="Sandboxed Example">
+</iframe>
+```
+
+#### allow Attribute
+Specifies feature policy for the iframe:
+```html
+<iframe 
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  title="YouTube Video">
+</iframe>
+```
+
+**Common Feature Policy Values:**
+- `accelerometer`: Access to accelerometer
+- `autoplay`: Autoplay media files
+- `camera`: Access to camera
+- `microphone`: Access to microphone
+- `geolocation`: Access to geolocation
+- `gyroscope`: Access to gyroscope
+- `payment`: Access to payment APIs
+- `usb`: Access to USB devices
+- `fullscreen`: Allow fullscreen mode
+- `picture-in-picture`: Allow picture-in-picture mode
+- `clipboard-write`: Allow clipboard write access
+- `encrypted-media`: Allow encrypted media playback
+
+#### allowfullscreen Attribute
+Allows the iframe to be displayed in fullscreen mode:
+```html
+<iframe 
+  src="video.html" 
+  allowfullscreen
+  title="Video Player">
+</iframe>
+```
+
+#### referrerpolicy Attribute
+Controls the Referer header sent when loading the iframe:
+```html
+<iframe 
+  src="https://example.com" 
+  referrerpolicy="no-referrer"
+  title="Example">
+</iframe>
+```
+
+**Referrer Policy Values:**
+- `no-referrer`: No referrer information sent
+- `no-referrer-when-downgrade`: Default, sends referrer to same security level
+- `origin`: Sends only the origin
+- `origin-when-cross-origin`: Full URL for same origin, origin only for cross-origin
+- `same-origin`: Send referrer only for same-origin requests
+- `strict-origin`: Send origin only when protocol security level stays the same
+- `strict-origin-when-cross-origin`: Full URL for same origin, origin for cross-origin
+- `unsafe-url`: Always send full URL
+
+### Loading Attributes
+
+#### loading Attribute
+Controls lazy loading of iframes:
+```html
+<!-- Lazy load iframe -->
+<iframe src="page.html" loading="lazy" title="Lazy Loaded Page"></iframe>
+
+<!-- Eager load iframe -->
+<iframe src="page.html" loading="eager" title="Eager Loaded Page"></iframe>
+```
+
+**Loading Values:**
+- `lazy`: Defer loading until iframe is near viewport
+- `eager`: Load iframe immediately (default)
+
+#### srcdoc Attribute
+Provides inline HTML content instead of loading from a URL:
+```html
+<iframe srcdoc="<h1>Hello World</h1><p>This is inline HTML</p>" title="Inline Content"></iframe>
+```
+
+More complex example:
+```html
+<iframe 
+  srcdoc="<!DOCTYPE html>
+    <html>
+      <head><title>Inline Page</title></head>
+      <body>
+        <h1>Welcome</h1>
+        <p>This content is embedded directly.</p>
+      </body>
+    </html>"
+  width="600"
+  height="400"
+  title="Inline HTML Document">
+</iframe>
+```
+
+### Common Iframe Use Cases
+
+#### Embedding YouTube Videos
+```html
+<iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  title="YouTube video player"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+```
+
+#### Embedding Google Maps
+```html
+<iframe 
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."
+  width="600"
+  height="450"
+  style="border:0;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade"
+  title="Google Maps Location">
+</iframe>
+```
+
+#### Embedding Vimeo Videos
+```html
+<iframe 
+  src="https://player.vimeo.com/video/VIDEO_ID"
+  width="640"
+  height="360"
+  allow="autoplay; fullscreen; picture-in-picture"
+  allowfullscreen
+  title="Vimeo Video">
+</iframe>
+```
+
+#### Embedding Social Media Posts
+
+**Twitter/X:**
+```html
+<iframe 
+  src="https://platform.twitter.com/embed/Tweet.html?id=TWEET_ID"
+  width="550"
+  height="450"
+  title="Twitter Tweet">
+</iframe>
+```
+
+**Facebook:**
+```html
+<iframe 
+  src="https://www.facebook.com/plugins/post.php?href=POST_URL"
+  width="500"
+  height="600"
+  style="border:none;overflow:hidden"
+  scrolling="no"
+  allowfullscreen="true"
+  title="Facebook Post">
+</iframe>
+```
+
+#### Embedding Code Editors
+**CodePen:**
+```html
+<iframe 
+  height="300"
+  style="width: 100%;"
+  scrolling="no"
+  title="CodePen Embed"
+  src="https://codepen.io/username/embed/HASH?default-tab=html,result"
+  loading="lazy"
+  allowtransparency="true"
+  allowfullscreen="true">
+</iframe>
+```
+
+**JSFiddle:**
+```html
+<iframe 
+  width="100%"
+  height="300"
+  src="//jsfiddle.net/username/HASH/embedded/"
+  allowfullscreen="allowfullscreen"
+  title="JSFiddle Embed">
+</iframe>
+```
+
+#### Embedding Documents
+**Google Docs:**
+```html
+<iframe 
+  src="https://docs.google.com/document/d/DOCUMENT_ID/preview"
+  width="640"
+  height="480"
+  allow="autoplay"
+  title="Google Document">
+</iframe>
+```
+
+**PDF Files:**
+```html
+<iframe 
+  src="document.pdf"
+  width="100%"
+  height="600px"
+  title="PDF Document">
+  <p>Your browser does not support PDFs. 
+     <a href="document.pdf">Download the PDF</a>.</p>
+</iframe>
+```
+
+### Iframe Accessibility Best Practices
+
+#### Always Include a Title
+```html
+<iframe 
+  src="page.html" 
+  title="Descriptive title for screen readers">
+</iframe>
+```
+
+#### Provide Fallback Content
+```html
+<iframe src="content.html" title="Main Content">
+  <p>Your browser does not support iframes. 
+     <a href="content.html">View the content here</a>.</p>
+</iframe>
+```
+
+#### Use Semantic Alternatives When Possible
+```html
+<!-- Instead of iframe for images -->
+<img src="image.jpg" alt="Description">
+
+<!-- Instead of iframe for videos (when self-hosted) -->
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+```
+
+### Responsive Iframes
+
+#### Fixed Aspect Ratio Container
+```html
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe 
+    src="https://www.youtube.com/embed/VIDEO_ID"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    allowfullscreen
+    title="Responsive Video">
+  </iframe>
+</div>
+```
+
+#### 16:9 Aspect Ratio
+```html
+<div style="aspect-ratio: 16/9; width: 100%;">
+  <iframe 
+    src="content.html"
+    style="width: 100%; height: 100%; border: none;"
+    title="Responsive Content">
+  </iframe>
+</div>
+```
+
+#### 4:3 Aspect Ratio
+```html
+<div style="position: relative; padding-bottom: 75%; height: 0;">
+  <iframe 
+    src="content.html"
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    title="4:3 Content">
+  </iframe>
+</div>
+```
+
+### Multiple Iframes on One Page
+```html
+<h2>Section 1</h2>
+<iframe src="section1.html" width="100%" height="400" title="Section 1"></iframe>
+
+<h2>Section 2</h2>
+<iframe src="section2.html" width="100%" height="400" title="Section 2"></iframe>
+
+<h2>Section 3</h2>
+<iframe src="section3.html" width="100%" height="400" title="Section 3"></iframe>
+```
+
+### Iframe with Target Links
+```html
+<!-- Parent page with iframe -->
+<nav>
+  <a href="page1.html" target="contentFrame">Page 1</a>
+  <a href="page2.html" target="contentFrame">Page 2</a>
+  <a href="page3.html" target="contentFrame">Page 3</a>
+</nav>
+
+<iframe 
+  src="page1.html" 
+  name="contentFrame"
+  width="100%"
+  height="500"
+  title="Content Frame">
+</iframe>
+```
+
+### Iframe Best Practices
+
+#### Performance Considerations
+1. **Use lazy loading**: Add `loading="lazy"` for below-the-fold iframes
+2. **Minimize iframe count**: Each iframe creates a separate document context
+3. **Set explicit dimensions**: Prevents layout shifts
+4. **Consider alternatives**: Use native HTML elements when possible
+
+```html
+<iframe 
+  src="heavy-content.html"
+  loading="lazy"
+  width="800"
+  height="600"
+  title="Heavy Content">
+</iframe>
+```
+
+#### Security Best Practices
+1. **Use sandbox attribute**: Restrict iframe capabilities
+2. **Validate sources**: Only embed trusted sources
+3. **Set referrer policy**: Control referrer information
+4. **Use HTTPS**: Always use secure connections
+5. **Implement CSP**: Content Security Policy headers
+
+```html
+<iframe 
+  src="https://trusted-site.com/content"
+  sandbox="allow-scripts allow-same-origin"
+  referrerpolicy="no-referrer"
+  title="Secure Content">
+</iframe>
+```
+
+#### SEO Considerations
+1. **Avoid using iframes for main content**: Search engines may not index iframe content
+2. **Use descriptive titles**: Help search engines understand the content
+3. **Provide fallback content**: Include text alternative for SEO
+4. **Consider accessibility**: Screen readers need clear iframe descriptions
+
+### Browser Support
+The iframe element is supported in all browsers:
+- **Chrome**: Full support (all versions)
+- **Firefox**: Full support (all versions)
+- **Safari**: Full support (all versions)
+- **Edge**: Full support (all versions)
+- **Opera**: Full support (all versions)
+- **IE**: Full support (all versions)
+
+Modern attributes like `loading` and `sandbox` have varying support:
+- `sandbox`: IE 10+, all modern browsers
+- `loading`: Chrome 77+, Firefox 75+, Safari 16.4+, Edge 79+
+- `allow`: All modern browsers
+- `referrerpolicy`: All modern browsers
+
+### Common Issues and Solutions
+
+#### Iframe Not Displaying
+- Check if the source URL is accessible
+- Verify CORS and X-Frame-Options headers
+- Ensure proper protocol (HTTP vs HTTPS)
+- Check browser console for errors
+
+#### X-Frame-Options Blocking
+Some sites prevent being embedded in iframes:
+```html
+<!-- This may be blocked by the target site -->
+<iframe src="https://some-site.com" title="May be blocked"></iframe>
+
+<!-- Error: Refused to display in a frame because it set 'X-Frame-Options' to 'deny' -->
+```
+
+#### Mixed Content Issues
+Don't embed HTTP content in HTTPS pages:
+```html
+<!-- Wrong: Mixed content -->
+<iframe src="http://example.com" title="Insecure"></iframe>
+
+<!-- Correct: Use HTTPS -->
+<iframe src="https://example.com" title="Secure"></iframe>
+```
+
+### Learning Resources
+
+#### Documentation
+- [MDN Web Docs - Iframe Element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe)
+- [HTML Living Standard - Iframe](https://html.spec.whatwg.org/multipage/iframe-embed-object.html#the-iframe-element)
+- [W3C HTML5 Specification](https://www.w3.org/TR/html5/embedded-content-0.html#the-iframe-element)
+
+#### Tutorials
+- [HTML Iframes - W3Schools](https://www.w3schools.com/html/html_iframe.asp)
+- [Using Iframes - MDN Learning](https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Other_embedding_technologies)
+
+#### Security Resources
+- [Iframe Sandbox - MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#attr-sandbox)
+- [Content Security Policy - MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP)
+- [OWASP Iframe Security](https://cheatsheetseries.owasp.org/cheatsheets/HTML5_Security_Cheat_Sheet.html#iframes)
+
+### Practice Projects
+1. **Video Gallery**: Create a page with embedded YouTube videos
+2. **Map Integration**: Build a contact page with embedded Google Maps
+3. **Multi-Page Layout**: Use iframes to create a dashboard with multiple sections
+4. **Social Media Feed**: Embed social media posts from various platforms
+5. **Documentation Viewer**: Create a documentation browser with navigation and content frames
+
+### Security Considerations
+1. **Clickjacking Protection**: Use X-Frame-Options header on your own pages
+2. **Sandbox Restrictions**: Apply appropriate sandbox attributes
+3. **Content Security Policy**: Implement CSP to control iframe sources
+4. **HTTPS Only**: Always use secure connections
+5. **Validate Sources**: Only embed content from trusted sources
+6. **Minimize Permissions**: Use restrictive `allow` and `sandbox` attributes
+7. **Cross-Origin Issues**: Be aware of CORS restrictions
+
+---
+
+*The HTML iframe element is a versatile tool for embedding external content, but it should be used thoughtfully with proper security measures and accessibility considerations.*
