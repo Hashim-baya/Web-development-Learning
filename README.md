@@ -1020,7 +1020,16 @@ More complex example:
 
 #### Embedding Google Maps
 ```html
-<!-- Get your embed URL from Google Maps by clicking "Share" > "Embed a map" -->
+<!-- 
+  To get your actual embed URL:
+  1. Go to Google Maps (maps.google.com)
+  2. Search for a location
+  3. Click "Share" button
+  4. Click "Embed a map" tab
+  5. Copy the iframe code provided
+  
+  Example with sample coordinates (New York City area):
+-->
 <iframe 
   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.1!2d-73.98!3d40.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1"
   width="600"
