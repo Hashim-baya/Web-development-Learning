@@ -3,20 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HTML Iframe Examples</title>
 </head>
 <body>
-    <h1>iframe Video Display</h1>
+    <h1>HTML Iframe Element Examples</h1>
 
+    <!-- Example 1: YouTube Video Embed -->
+    <h2>1. Embedded YouTube Video</h2>
     <iframe
       width="560"
       height="315"
       src="https://www.youtube.com/embed/I0_951_MPE0"
-      allow="accelerometer autoplay clipboard-write encrypted-media gyroscope web-share"
+      title="YouTube video player"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
       referrerpolicy="strict-origin-when-cross-origin"
       allowfullscreen
     >
-
     </iframe>
+
+    <!-- Example 2: Basic Iframe with Local Content -->
+    <h2>2. Basic Iframe</h2>
+    <iframe
+      src="https://www.example.com"
+      width="600"
+      height="400"
+      title="Example Website"
+    >
+      <p>Your browser does not support iframes.</p>
+    </iframe>
+
+    <!-- Example 3: Iframe with Sandbox Attribute -->
+    <h2>3. Sandboxed Iframe</h2>
+    <iframe
+      src="https://www.example.com"
+      width="600"
+      height="300"
+      sandbox="allow-scripts allow-same-origin"
+      title="Sandboxed Content"
+    >
+    </iframe>
+
+    <!-- Example 4: Responsive Iframe with Aspect Ratio -->
+    <h2>4. Responsive Iframe (16:9)</h2>
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe
+        src="https://www.youtube.com/embed/I0_951_MPE0"
+        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+        allowfullscreen
+        title="Responsive YouTube Video"
+      >
+      </iframe>
+    </div>
+
+    <!-- Example 5: Iframe with Lazy Loading -->
+    <h2>5. Lazy Loaded Iframe</h2>
+    <iframe
+      src="https://www.example.com"
+      width="600"
+      height="400"
+      loading="lazy"
+      title="Lazy Loaded Content"
+    >
+    </iframe>
+
+    <!-- Example 6: Iframe with srcdoc (Inline HTML) -->
+    <h2>6. Iframe with Inline HTML Content</h2>
+    <iframe
+      srcdoc="<h1>Hello from Inline HTML</h1><p>This content is embedded directly using the srcdoc attribute.</p>"
+      width="600"
+      height="200"
+      title="Inline HTML Content"
+    >
+    </iframe>
+
 </body>
 </html>
