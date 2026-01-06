@@ -105,7 +105,7 @@ Web-development-Learning/
 
 | Phase | Status | Completion |
 |-------|--------|------------|
-| Frontend Fundamentals | 🔄 In Progress | 0% |
+| Frontend Fundamentals | ⏳ Not Started | 0% |
 | Advanced Frontend | ⏳ Not Started | 0% |
 | Backend Development | ⏳ Not Started | 0% |
 | Full-Stack Integration | ⏳ Not Started | 0% |
